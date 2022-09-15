@@ -1,4 +1,4 @@
-package unums;
+package enums;
 
 public enum PerceivedEffort {
     VERY_LIGHT1("1", "1 (Very Light)"),

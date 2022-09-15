@@ -3,9 +3,9 @@ package elements;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class RadioButton extends BaseElement{
+public class RadioButtonWorkout extends BaseElement{
     private final String radioButtonLocator = "//input[@type='radio']//following-sibling::span[text()='%s']";
-    public RadioButton(WebDriver driver) {
+    public RadioButtonWorkout(WebDriver driver) {
         super(driver);
     }
     public void clickRadioButton(String feeling){

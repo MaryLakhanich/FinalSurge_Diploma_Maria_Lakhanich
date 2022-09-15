@@ -1,4 +1,4 @@
-package unums;
+package enums;
 
 public enum FeelingWhileTraining {
     GREAT("Great"),

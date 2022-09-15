@@ -3,8 +3,8 @@ package pages;
 import models.Workout;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import unums.FeelingWhileTraining;
-import unums.PerceivedEffort;
+import enums.FeelingWhileTraining;
+import enums.PerceivedEffort;
 
 public class WorkoutDetailsPage extends BasePage{
     private final static By VIEW_YOUR_WORKOUT_TEXT= By.xpath("//span[text()='View and Edit your workout.']");
@@ -12,7 +12,7 @@ public class WorkoutDetailsPage extends BasePage{
     private static final By ACTUAL_NAME = By.xpath("//span[@class='activityTypeName']/parent::div/following-sibling::div");
     private static final By ACTUAL_DESCRIPTION = By.xpath("//small[contains(text(),'Description:')]/ancestor::p");
     private static final By ACTUAL_DURATION = By.xpath("//small[text()='Workout Statistics:']/following-sibling::span[@class='label label-info']");
-    private static final By ACTUAL_PERCEIVED_EFFORT = By.xpath("//div[@class='formSep'][3]");
+    private static final By ACTUAL_PERCEIVED_EFFORT = By.xpath("//small[text()='Perceived Effort']/parent::div[@class='formSep']");
     private static final By ACTUAL_FEELING = By.xpath("//small[text()='How I Felt:']/following-sibling::span");
 
     public WorkoutDetailsPage(WebDriver driver) {

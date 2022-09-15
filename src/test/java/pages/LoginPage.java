@@ -23,7 +23,7 @@ public class LoginPage extends BasePage {
         driver.get(URL);
     }
 
-    public void Login(String email, String password) {
+    public void login(String email, String password) {
         driver.findElement(EMAIL_INPUT).sendKeys(email);
         driver.findElement(PASSWORD_INPUT).sendKeys(password);
         driver.findElement(LOGIN_BUTTON).click();

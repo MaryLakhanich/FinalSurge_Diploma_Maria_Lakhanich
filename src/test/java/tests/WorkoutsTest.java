@@ -17,8 +17,8 @@ public class WorkoutsTest extends BaseTest {
 
     @Test
     public void addStrengthTrainingTest() {
-        loginPage.Login(EMAIL, PASSWORD);
-        homePage.isPageOpened();
+        loginPage.login(EMAIL, PASSWORD);
+        Assert.assertTrue(homePage.isPageOpened());
         homePage.moveToWorkoutsMenu();
         homePage.clickAddWorkout();
         Assert.assertTrue(workoutsPage.isPageOpened());
@@ -26,7 +26,7 @@ public class WorkoutsTest extends BaseTest {
         Workout strengthTraining= WorkoutFactory.addStrengthTraining();
         addWorkoutModal.fillForm(strengthTraining);
         addWorkoutModal.clickAddWorkoutButton();
-        workoutDetailsPage.isPageOpened();
+        Assert.assertTrue(workoutDetailsPage.isPageOpened());
         Assert.assertEquals(strengthTraining,workoutDetailsPage.getAddedWorkoutDetails(),"Saved workout information differs from entered information");
     }
 }

@@ -10,7 +10,7 @@ public class LoginTest extends BaseTest {
 
     @Test
     public void positiveLoginTest() {
-        loginPage.Login(EMAIL, PASSWORD);
+        loginPage.login(EMAIL, PASSWORD);
         Assert.assertTrue(homePage.isPageOpened(), "Account Login has failed, home page isn't opened");
     }
 
@@ -27,14 +27,14 @@ public class LoginTest extends BaseTest {
 
     @Test(dataProvider = "negativeDataForLoginTest")
     public void negativeLoginTest(String email, String password) {
-        loginPage.Login(email, password);
+        loginPage.login(email, password);
         Assert.assertTrue(loginPage.isPageOpened());
     }
 
     @Test
     public void logoutTest() {
-        loginPage.Login(EMAIL, PASSWORD);
-        homePage.isPageOpened();
+        loginPage.login(EMAIL, PASSWORD);
+        Assert.assertTrue(homePage.isPageOpened());
         homePage.clickLogoutButton();
         Assert.assertEquals(loginPage.getLogoutMessageText(), expectedLogoutMessageText);
     }

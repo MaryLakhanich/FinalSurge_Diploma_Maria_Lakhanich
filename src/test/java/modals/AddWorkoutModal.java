@@ -2,7 +2,7 @@ package modals;
 
 import elements.DropDown;
 import elements.Input;
-import elements.RadioButton;
+import elements.RadioButtonWorkout;
 import models.Workout;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -25,7 +25,7 @@ public class AddWorkoutModal extends BaseModal{
         new Input(driver).setValue(WORKOUT_NAME, workout.getWorkoutName());
         new Input(driver).setValue(WORKOUT_DESCRIPTION, workout.getWorkoutDescription());
         new Input(driver).setValue(DURATION, workout.getDuration());
-        new RadioButton(driver).clickRadioButton(workout.getFeelingWhileTraining().getName());
+        new RadioButtonWorkout(driver).clickRadioButton(workout.getFeelingWhileTraining().getName());
         new DropDown(driver).selectOptionByOptionValue(PERCEIVED_EFFORT,workout.getPerceivedEffort().getValue());
         return this;
     }

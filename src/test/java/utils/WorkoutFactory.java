@@ -2,8 +2,8 @@ package utils;
 
 import com.github.javafaker.Faker;
 import models.Workout;
-import unums.FeelingWhileTraining;
-import unums.PerceivedEffort;
+import enums.FeelingWhileTraining;
+import enums.PerceivedEffort;
 
 public class WorkoutFactory {
     static Faker faker=new Faker();
