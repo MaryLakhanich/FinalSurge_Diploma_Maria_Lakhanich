@@ -1,5 +1,6 @@
 package tests;
 
+import io.qameta.allure.Description;
 import modals.AddWorkoutModal;
 import models.Workout;
 import org.testng.Assert;
@@ -15,7 +16,8 @@ public class WorkoutsTest extends BaseTest {
         addWorkoutModal = new AddWorkoutModal(driver);
     }
 
-    @Test
+    @Test (groups = {"regression"})
+    @Description ("Checking if added workout is saved correctly")
     public void addStrengthTrainingTest() {
         loginPage.login(EMAIL, PASSWORD);
         Assert.assertTrue(homePage.isPageOpened());

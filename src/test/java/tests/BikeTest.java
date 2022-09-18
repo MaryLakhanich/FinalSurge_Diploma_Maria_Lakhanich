@@ -1,14 +1,14 @@
 package tests;
 
+import io.qameta.allure.Description;
 import modals.AddBikeModal;
-import modals.AddWorkoutModal;
 import models.Bike;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import utils.BikeFactory;
 
-public class BikeTest extends BaseTest{
+public class BikeTest extends BaseTest {
     protected AddBikeModal addBikeModal;
     protected final String EXPECTED_TEXT = "You have no Current bikes. Add one now by using the Add New Bike form.";
 
@@ -17,7 +17,8 @@ public class BikeTest extends BaseTest{
         addBikeModal = new AddBikeModal(driver);
     }
 
-    @Test
+    @Test(groups = {"regression"})
+    @Description("Adding a new bike and deleting it")
     public void addAndDeleteNewBikeTest() {
         loginPage.login(EMAIL, PASSWORD);
         Assert.assertTrue(homePage.isPageOpened());
@@ -33,5 +34,4 @@ public class BikeTest extends BaseTest{
         equipmentBikesPage.clickOKButton();
         Assert.assertEquals(equipmentBikesPage.getNoBikesText(), EXPECTED_TEXT);
     }
-
 }

@@ -26,6 +26,16 @@
             <scope>provided</scope>
         </dependency>
         <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+            <version>2.18.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.dataformat</groupId>
+            <artifactId>jackson-dataformat-yaml</artifactId>
+            <version>2.13.3</version>
+        </dependency>
+        <dependency>
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
             <version>${testNgVersion}</version>
@@ -49,7 +59,7 @@
         <testNgVersion>7.6.0</testNgVersion>
         <maven.compiler.source>18</maven.compiler.source>
         <maven.compiler.target>18</maven.compiler.target>
-        <suiteXmlFile>NegativeTests.xml</suiteXmlFile>
+        <suiteXmlFile>allTests.xml</suiteXmlFile>
         <aspectj.version>1.9.8</aspectj.version>
     </properties>
 

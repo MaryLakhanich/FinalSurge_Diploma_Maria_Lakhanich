@@ -29,6 +29,7 @@ public abstract class BaseTest {
     protected CheckoutPage checkoutPage;
     protected EquipmentBikesPage equipmentBikesPage;
     protected PrintPage printPage;
+    protected WorkoutReportPage workoutReportPage;
 
     @BeforeClass(alwaysRun = true)
     public void setUp(ITestContext testContext) throws Exception {
@@ -48,6 +49,7 @@ public abstract class BaseTest {
         checkoutPage = new CheckoutPage(driver);
         equipmentBikesPage = new EquipmentBikesPage(driver);
         printPage = new PrintPage(driver);
+        workoutReportPage = new WorkoutReportPage(driver);
     }
 
     @BeforeMethod(alwaysRun = true)

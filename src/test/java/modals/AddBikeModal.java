@@ -1,12 +1,13 @@
 package modals;
 
-import elements.DropDown;
 import elements.Input;
+import io.qameta.allure.Step;
+import lombok.extern.log4j.Log4j2;
 import models.Bike;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-
+@Log4j2
 public class AddBikeModal extends BaseModal{
 
     private final static By BIKE_NAME = By.id("ShoeName");
@@ -22,24 +23,32 @@ public class AddBikeModal extends BaseModal{
     public AddBikeModal(WebDriver driver) {
         super(driver);
     }
+
+    @Step("Selecting a bike brand")
     public void selectBikeBrand(String optionName) {
+        log.info("Selecting a bike brand");
         driver.findElement(BIKE_BRAND).click();
         WebElement optionToClick = driver.findElement(By.xpath(String.format(bikeBrandLocator, optionName)));
         optionToClick.click();
     }
+
+    @Step("Filling in the form to add a new bike")
     public AddBikeModal fillForm (Bike bike){
         new Input(driver).setValue(BIKE_NAME, bike.getBikeName());
         selectBikeBrand(bike.getBikeBrand().getName());
         new Input(driver).setValue(BIKE_MODEL, bike.getModel());
         new Input(driver).setValue(BIKE_COST, bike.getCost());
         new Input(driver).setValue(DATE, bike.getDatePurchased());
+        log.info("clearing prefilled input");
         driver.findElement(STARTING_DISTANCE).clear();
         new Input(driver).setValue(STARTING_DISTANCE, bike.getDistance());
         new Input(driver).setValue(NOTES, bike.getNotes());
         return this;
     }
 
+    @Step("Clicking button 'Add Bike'")
     public void clickAddBikeButton () {
+        log.info("clicking button 'Add Bike'");
         driver.findElement(ADD_BIKE_BUTTON).click();
     }
 }

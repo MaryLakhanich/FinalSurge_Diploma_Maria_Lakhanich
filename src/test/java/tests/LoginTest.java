@@ -1,5 +1,6 @@
 package tests;
 
+import io.qameta.allure.Description;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -8,7 +9,8 @@ public class LoginTest extends BaseTest {
 
     private final static String expectedLogoutMessageText = "You have been successfully logged out of the system.";
 
-    @Test
+    @Test(groups = {"regression"})
+    @Description("Login test with correct data")
     public void positiveLoginTest() {
         loginPage.login(EMAIL, PASSWORD);
         Assert.assertTrue(homePage.isPageOpened(), "Account Login has failed, home page isn't opened");
@@ -25,13 +27,15 @@ public class LoginTest extends BaseTest {
         };
     }
 
-    @Test(dataProvider = "negativeDataForLoginTest")
+    @Test(dataProvider = "negativeDataForLoginTest", groups = {"negative"})
+    @Description ("Checking if it is possible to login with incorrect data")
     public void negativeLoginTest(String email, String password) {
         loginPage.login(email, password);
         Assert.assertTrue(loginPage.isPageOpened());
     }
 
-    @Test
+    @Test (groups = {"regression"})
+    @Description ("Positive log out test")
     public void logoutTest() {
         loginPage.login(EMAIL, PASSWORD);
         Assert.assertTrue(homePage.isPageOpened());

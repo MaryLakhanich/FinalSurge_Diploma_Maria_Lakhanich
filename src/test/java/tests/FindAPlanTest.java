@@ -1,11 +1,13 @@
 package tests;
 
+import io.qameta.allure.Description;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class FindAPlanTest extends BaseTest{
+public class FindAPlanTest extends BaseTest {
 
-    @Test
+    @Test(groups = {"negative"})
+    @Description("Choosing a training plan and trying to pay for it")
     public void negativePlanCheckoutTest() {
         loginPage.login(EMAIL, PASSWORD);
         Assert.assertTrue(homePage.isPageOpened());
@@ -16,14 +18,12 @@ public class FindAPlanTest extends BaseTest{
         coachPage.isPageOpened();
         coachPage.clickContinueCheckoutButton();
         coachPage.clickLoginButton();
-        coachPage.login(EMAIL,PASSWORD);
-        Assert.assertTrue(checkoutPage.isPageOpened());
-        checkoutPage.enterCardDataAndClickPayButton(FAKE_GENERATED_CARD_NUMBER,FAKE_GENERATED_EXPIRY_DATE,FAKE_GENERATED_CVC);
+        coachPage.login(EMAIL, PASSWORD);
+        checkoutPage.waitForElementDisplayed();
+        checkoutPage.enterCardDataAndClickPayButton(FAKE_GENERATED_CARD_NUMBER, FAKE_GENERATED_EXPIRY_DATE, FAKE_GENERATED_CVC);
         checkoutPage.waitForPayButtonIsClickable();
         checkoutPage.clickPayButton();
         checkoutPage.waitForErrorMessageVisible();
         Assert.assertTrue(checkoutPage.isCardNumberInvalid());
-
-
     }
 }
