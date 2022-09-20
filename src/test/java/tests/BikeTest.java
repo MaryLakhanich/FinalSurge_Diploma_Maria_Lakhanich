@@ -31,6 +31,7 @@ public class BikeTest extends BaseTest {
         equipmentBikesPage.clickEditButton();
         Assert.assertEquals(myBike,equipmentBikesPage.getAddedBikeDetails());
         equipmentBikesPage.clickDeleteButton();
+        equipmentBikesPage.waitForOKButtonIsVisible();
         equipmentBikesPage.clickOKButton();
         Assert.assertEquals(equipmentBikesPage.getNoBikesText(), EXPECTED_TEXT);
     }

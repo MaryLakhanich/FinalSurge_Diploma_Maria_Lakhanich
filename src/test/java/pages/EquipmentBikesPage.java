@@ -6,6 +6,8 @@ import lombok.extern.log4j.Log4j2;
 import models.Bike;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 @Log4j2
 public class EquipmentBikesPage extends BasePage{
@@ -95,6 +97,11 @@ public class EquipmentBikesPage extends BasePage{
     public void clickOKButton(){
         log.info("clicking button 'OK'");
         driver.findElement(OK_BUTTON).click();
+    }
+    @Step ("Waiting until button in modal window is visible")
+    public void waitForOKButtonIsVisible(){
+        WebDriverWait wait = new WebDriverWait(driver,5);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(OK_BUTTON));
     }
     @Step ("Getting text about absence of current bikes")
     public String getNoBikesText(){
