@@ -14,8 +14,8 @@ public class CheckoutPage extends CoachPage {
     private final static By CARD_NUMBER_INPUT = By.xpath("//span[@class]/input[@name='cardnumber']");
     private final static By EXPIRY_DATE = By.xpath("//span[@class]/input[@name='exp-date']");
     private final static By CVC_CODE = By.xpath("//span[@class]/input[@name='cvc']");
-    private final static By CARD_NUMBER_IFRAME = By.xpath("//div//iframe[contains(@title,'карты')]");
-    private final static By EXP_DATE_IFRAME = By.xpath("//div//iframe[contains(@title,'даты')]");
+    private final static By CARD_NUMBER_IFRAME = By.xpath("//div[@stripetype='cardNumber']//descendant::iframe");
+    private final static By EXP_DATE_IFRAME = By.xpath("//div[@stripetype='cardExpiry']//descendant::iframe");
     private final static By CVC_IFRAME = By.xpath("//div//iframe[contains(@title,'CVC')]");
     private final static By PAY_BUTTON = By.xpath("//div[contains(@class,'action-button')]");
     private final static By CHECKOUT_ERROR_MESSAGE = By.xpath("//div[contains(@class, 'alert__text')]");
