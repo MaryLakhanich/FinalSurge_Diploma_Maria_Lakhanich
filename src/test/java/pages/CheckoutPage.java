@@ -65,7 +65,7 @@ public class CheckoutPage extends CoachPage {
     @Step ("Checking if card number is valid")
     public boolean isCardNumberInvalid (){
         log.info("checking if card number is valid");
-        return driver.findElement(CHECKOUT_ERROR_MESSAGE).getText().contains("the following error: Неверный номер карты");
+        return driver.findElement(CHECKOUT_ERROR_MESSAGE).getText().contains("the following error: Your card number is incorrect");
     }
 
     @Step ("Waiting until error message is visible")
